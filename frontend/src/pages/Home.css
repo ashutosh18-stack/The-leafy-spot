@@ -1,0 +1,127 @@
+/* Home Container */
+.home-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Fullscreen Image */
+.home-image {
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/bg1.jpeg'); /* Add your image URL here */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: brightness(0.9); /* Apply brightness adjustment */
+}
+
+/* Blurry Card Animation */
+.blurry-card {
+  position: relative;
+  background: rgba(228, 217, 217, 0.2); /* Transparent white background */
+  backdrop-filter: blur(2px);
+  width: 100%;
+  max-width: 1300px;
+  padding: 30px;
+  margin-top: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  z-index: 2;
+  
+  /* Animation */
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Text Styling */
+.text, .description {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.text {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(21, 9, 9);
+  margin-bottom: 10px;
+  animation-delay: 1s; /* Show after blurry card */
+}
+
+.description {
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
+  animation-delay: 1.5s; /* Show after the title */
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .blurry-card {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .text {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+}
+
+
+
+
+/* Scroll Animation - Slide in effect */
+.scroll-animation {
+  opacity: 0;
+  transform: translateY(50px); /* Slide up effect */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.scroll-animation.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Alternative Slide Left-Right Animation */
+.scroll-animation:nth-child(odd) {
+  transform: translateX(-50px);
+}
+
+.scroll-animation:nth-child(even) {
+  transform: translateX(50px);
+}
+
+.scroll-animation.show:nth-child(odd),
+.scroll-animation.show:nth-child(even) {
+  transform: translateX(0);
+}

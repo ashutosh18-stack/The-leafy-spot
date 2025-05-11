@@ -1,0 +1,37 @@
+/* Hero Component Animations */
+.hero-img, .hero-text {
+    opacity: 0;
+    transform: translateX(0);
+    transition: all 1s ease-out;
+  }
+  
+  .animate-slideInLeft {
+    animation: slideInLeft 1s ease-out forwards;
+  }
+  
+  .animate-slideInRight {
+    animation: slideInRight 1s ease-out forwards;
+  }
+  
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInRight {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
